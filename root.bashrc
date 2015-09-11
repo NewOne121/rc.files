@@ -52,7 +52,6 @@ CYAN='\e[1;36m'
 NC='\e[0m'
 
 export PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;122m\]!\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;178m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]> \[$(tput sgr0)\]"
-#export PS1="\[\e[0;31m\]\u\[\e[0;37m\]!\[\e[0;36m\]\h\[\e[0;37m\]:\[\e[0;33m\]\W\[\e[0;37m\]> \[\e[0m\]"
 
 
 ###BACULA
@@ -61,4 +60,3 @@ alias bdir='cd /etc/bacula/bacula-dir'
 alias bscr='cd /etc/bacula/scripts'
 alias grep='grep --color=auto'
 alias mds='df -h | grep md | sort -k5n'
-alias sendrep='/home/ffilippov/report.sh'
