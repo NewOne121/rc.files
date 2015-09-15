@@ -43,5 +43,7 @@ case $CURUSER in
   fi;;
 esac
 
-echo "Bash version is: $(bash --version | grep release | sed -r 's/.*version\ (.*)\(.*\)-release.*/\1/')"
+cat >> ~/.bashrc << EOF
+echo "Bash version is: \$(bash --version | grep release | sed -r 's/.*version\ (.*)\(.*\)-release.*/\1/')\"
+EOF
 
