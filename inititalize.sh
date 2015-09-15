@@ -47,3 +47,4 @@ cat >> ~/.bashrc << EOF
 echo "Bash version is: \$(bash --version | grep release | sed -r 's/.*version\ (.*)\(.*\)-release.*/\1/')\"
 EOF
 
+sed -i 's/https\:\/\/github.com/https\:\/\/newone121\@github.com/g' ~/rc.files/.git/config
