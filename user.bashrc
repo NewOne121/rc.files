@@ -1,5 +1,6 @@
 #PS1 customization
 #http://bashrcgenerator.com/
+export TERM=xterm
 export PS1="\[\033[38;5;43m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]%\[$(tput sgr0)\]\[\033[38;5;229m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;211m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]> \[$(tput sgr0)\]"
 
 ###Some customs###
@@ -14,4 +15,3 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-echo "Bash version is: $(bash --version | grep release | sed -r 's/.*version\ (.*)\(.*\)-release.*/\1/')"
