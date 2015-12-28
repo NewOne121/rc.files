@@ -1,7 +1,10 @@
 #PS1 customization
 #http://bashrcgenerator.com/
 #	@
-export PS1="\[\033[38;5;43m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]%\[$(tput sgr0)\]\[\033[38;5;229m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;211m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]> \[$(tput sgr0)\]"
+
+export PYTHONSTARTUP=$HOME/.pystartup
+
+tty -s && export PS1="\[\033[38;5;43m\]\u\[$(tty -s && tput sgr0)\]\[\033[38;5;15m\]%\[$(tty -s && tput sgr0)\]\[\033[38;5;229m\]\h\[$(tty -s && tput sgr0)\]\[\033[38;5;15m\]:\[$(tty -s && tput sgr0)\]\[\033[38;5;211m\]\W\[$(tty -s && tput sgr0)\]\[\033[38;5;15m\]> \[$(tty -s && tput sgr0)\]"
 
 ###Some customs###
 shopt -s histappend

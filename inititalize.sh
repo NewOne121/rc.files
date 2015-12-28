@@ -40,8 +40,12 @@ case $CURUSER in
           else
 	    rm ~/.vimrc
             ln -s ~/rc.files/.vimrc ~/.vimrc
-  fi;;
+  fi
 esac
 
-echo "Bash version is: $(bash --version | grep release | sed -r 's/.*version\ (.*)\(.*\)-release.*/\1/')"
 
+if [ ! -f ~/pystartup ]
+ then
+  ln -s ~/rc.files/pystartup ~/.pystartup &&
+  . ~/.pystartup
+  touch ~/.pyhistory
