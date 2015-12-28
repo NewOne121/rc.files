@@ -1,5 +1,5 @@
 syntax on
 set tabstop=4
 set background=dark
-set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
-
+set ls=2
+set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
