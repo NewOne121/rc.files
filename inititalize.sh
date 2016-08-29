@@ -46,6 +46,5 @@ esac
 if [ ! -f ~/pystartup ]
  then
   ln -s ~/rc.files/pystartup ~/.pystartup &&
-  . ~/.pystartup
   touch ~/.pyhistory
 fi

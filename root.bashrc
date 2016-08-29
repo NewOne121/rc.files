@@ -52,3 +52,5 @@ alias bdir='cd /etc/bacula/bacula-dir'
 alias bscr='cd /etc/bacula/scripts'
 alias grep='grep --color=auto'
 alias mds='df -h | grep md | sort -k5n'
+###PYTHON
+export PYTHONSTARTUP="~/.pystartup"
