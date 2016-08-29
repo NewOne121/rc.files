@@ -48,7 +48,4 @@ if [ ! -f ~/pystartup ]
   ln -s ~/rc.files/pystartup ~/.pystartup &&
   . ~/.pystartup
   touch ~/.pyhistory
-
-#<<<<<<< HEAD
-#sed -i 's/https\:\/\/github.com/https\:\/\/newone121\@github.com/g' ~/rc.files/.git/config
-#>>>>>>> 1efca0ef12e85221878e18232f3ebc6da96ea272
+fi
