@@ -48,3 +48,5 @@ if [ ! -f ~/pystartup ]
   ln -s ~/rc.files/pystartup ~/.pystartup &&
   touch ~/.pyhistory
 fi
+
+. $HOME/.bashrc
