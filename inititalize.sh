@@ -21,7 +21,13 @@ case $CURUSER in
           else
 	    rm ~/.vimrc
             ln -s ~/rc.files/.vimrc ~/.vimrc
-  fi;;
+  fi
+  if [ -d ~/.vim/plugin ]
+  then
+	mkdir -p ~/.vim/plugin
+	cp ~/rc.files/python.vim ~/.vim/plugin
+  fi
+	;;
 	[a-zA-Z0-9]*)
   if [ -f ~/.bashrc ]
   then
@@ -40,7 +46,8 @@ case $CURUSER in
           else
 	    rm ~/.vimrc
             ln -s ~/rc.files/.vimrc ~/.vimrc
-  fi;;
+  fi
+	;;
 esac
 
 if [ ! -f ~/pystartup ]
