@@ -19,8 +19,3 @@ alias la='ls -A'
 alias l='ls -CF'
 
 
-
-
-
-#tty -s && export PS1="\[\033[38;5;43m\]\u\[$(tty -s && tput sgr0)\]\[\033[38;5;15m\]%\[$(tty -s && tput sgr0)\]\[\033[38;5;229m\]\h\[$(tty -s && tput sgr0)\]\[\033[38;5;15m\]:\[$(tty -s && tput sgr0)\]\[\033[38;5;211m\]\W\[$(tty -s && tput sgr0)\]\[\033[38;5;15m\]> \[$(tty -s && tput sgr0)\]"
-#=======
