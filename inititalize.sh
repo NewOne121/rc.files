@@ -6,11 +6,14 @@ rollback () {
 if [ -f ~/.gcf ]
  then
   mv ~/.bashrc ~/.bashrc.old
-  mv ~/.bashrc.orig ~/.bashrc
-  . ~/bashrc
+  cp ~/.bashrc.orig ~/.bashrc
+  . ~/.bashrc
   mv ~/.vimrc ~/.vimrc.old
-  mv ~/.vimrc.orig ~/.vimrc
-  rm ~/.vim/plugin/python.vim
+  if [ -f ~/.vimrc.orig ]
+  then
+   cp ~/.vimrc.orig ~/.vimrc
+  fi
+  rm -f ~/.vim/plugin/python.vim
   else
    echo "RC configuration not been allpied ever. Nothing to rollback."
    exit 0
@@ -19,11 +22,11 @@ fi
 
 case $CURUSER in
 	root)
-  if [ -f ~/.gcf ]
+  if [ ! -f ~/.gcf ]
   then
    touch ~/.gcf
   fi
-  if [ $1 = 'rollback' ]
+  if [ "$1" = "rollback" ]
   then
   rollback
   exit 0
@@ -34,7 +37,7 @@ case $CURUSER in
     ln -s ~/rc.files/root.bashrc ~/.bashrc &&
     . ~/.bashrc
           else
-	    rm ~/.bashrc
+	    rm -r ~/.bashrc
             ln -s ~/rc.files/root.bashrc ~/.bashrc &&
             . ~/.bashrc
   fi
@@ -43,7 +46,7 @@ case $CURUSER in
     mv ~/.vimrc ~/.vimrc.orig &&
     ln -s ~/rc.files/.vimrc ~/.vimrc
           else
-	    rm ~/.vimrc
+	    rm -f ~/.vimrc
             ln -s ~/rc.files/.vimrc ~/.vimrc
   fi
   if [ ! -d ~/.vim/plugin ]
@@ -53,11 +56,11 @@ case $CURUSER in
   fi
 	;;
 	[a-zA-Z0-9]*)
-  if [ -f ~/.gcf]
+  if [ ! -f ~/.gcf]
   then
    touch ~/.gcf
   fi
-  if [ $1 = 'rollback' ]
+  if [ "$1" = "rollback" ]
   then
   rollback
   exit 0
@@ -68,7 +71,7 @@ case $CURUSER in
     ln -s ~/rc.files/user.bashrc ~/.bashrc &&
     . ~/.bashrc
           else
-	    rm ~/.bashrc
+	    rm -f ~/.bashrc
             ln -s ~/rc.files/user.bashrc ~/.bashrc &&
             . ~/.bashrc
   fi
@@ -83,7 +86,7 @@ case $CURUSER in
 	;;
 esac
 
-if [ ! -f ~/pystartup ]
+if [ ! -f ~/.pystartup ]
  then
   ln -s ~/rc.files/pystartup ~/.pystartup &&
   touch ~/.pyhistory
