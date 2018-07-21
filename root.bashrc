@@ -45,20 +45,5 @@ fi
 ## Promt
 export PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;122m\]!\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;178m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]> \[$(tput sgr0)\]"
 
-
-###BACULA
-alias chbak='bacula-dir -t /etc/bacula/bacula-dir.conf'
-alias bdir='cd /etc/bacula/bacula-dir'
-alias bscr='cd /etc/bacula/scripts'
-alias grep='grep --color=auto'
-alias mds='df -h | grep md | sort -k5n'
-function won() {
-du -lsh /mnt/$@/*;
-}
-
 ###PYTHON
 export PYTHONSTARTUP="/root/.pystartup"
-
-
-
-
