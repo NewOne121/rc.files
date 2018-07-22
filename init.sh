@@ -64,9 +64,8 @@ echo "Current user is $USER"
 sechecks
 if [ ! -d $HOME/.rcbackup ];
 then
- mkdir $HOME/.rcbackup\
- && cp $HOME/* $HOME/.rcbackup\
- || {echo "Can't create backup directory, aborting."; kill -9 $$ 2>/dev/null}
+ mkdir $HOME/.rcbackup
+ cp $HOME/* $HOME/.rcbackup
 else
  if [ $(ls -A $HOME/.rcbackup/* | wc -l) -lt "100" ];
  then
