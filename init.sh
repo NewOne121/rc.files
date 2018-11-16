@@ -127,6 +127,7 @@ else
 	git config --global user.name "NewOne121"
 	git config --global user.email "f.filippov7@gmail.com"
 fi
+#
 
 ###Apply new bashrc
 echo "Don't forget to:"
