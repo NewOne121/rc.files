@@ -117,6 +117,17 @@ if [ "${item/*\./}" = "bashrc" ]
 fi
 done
 
+###Configure git
+if [ "$(rpm -qa | grep -q git; echo $?)" -ne "0" ]
+then
+	yum install git vim -y \
+	&& git config --global user.name "NewOne121" \
+	&& git config --global user.email "f.filippov7@gmail.com"
+else
+	git config --global user.name "NewOne121"
+	git config --global user.email "f.filippov7@gmail.com"
+fi
+
 ###Apply new bashrc
 echo "Don't forget to:"
 echo "source $HOME/.bashrc"
