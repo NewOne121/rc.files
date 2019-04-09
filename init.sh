@@ -24,6 +24,7 @@ then
  fi
 }
 
+#FIXME Does not works as expected. Add latest conf dir. Check code.
 revert () {
 echo "REVERT ACTIVE"
 echo "Current user is $USER"
