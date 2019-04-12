@@ -24,7 +24,6 @@ then
  fi
 }
 
-#FIXME Does not works as expected. Add latest conf dir. Check code.
 revert () {
 echo "REVERT ACTIVE"
 echo "Current user is $USER"
@@ -32,9 +31,9 @@ HOME=$(eval echo "~$USER")
 if [ ! -d $HOME/.rcbackup ];
 then
  echo "Backup dir does not exist, terminating script.";
- kill -9 $$
+ kill -9 $$ > /dev/null 2>&1
 else
- for backrcfile in $HOME/.rcbackup/*; do
+ for backrcfile in $HOME/.rcbackup/latest/*; do
   cp $backrcfile $HOME/$(basename ${backrcfile%.*})
   echo "Revert completed. Files are not sourced."
  done
@@ -50,6 +49,7 @@ then
   if [ -z $ARGUSER ];
   then
    revert
+   exit 0
   else
    USER=$ARGUSER
   fi
@@ -73,7 +73,7 @@ else
   echo "Backup directory already exists. Will add current files to existing backup."
   if [ -d $HOME/.rcbackup/$(date +%Y%m%d) ];
   then 
-  echo "Backup directory with today's date already exists, it will be wiped nad overwritten. Continue if you do what's you are doing."
+  echo "Backup directory with today's date already exists, it will be wiped nad overwritten. Continue?"
    read -p "Continue [y/n] : " dec
    if [ $dec = "y" ]
    then
@@ -85,9 +85,10 @@ else
   fi
   mkdir -p $HOME/.rcbackup/$(date +%Y%m%d)
   cp $HOME/\.[a-z]* $HOME/.rcbackup/$(date +%Y%m%d) > /dev/null 2>&1
+  ln -s $HOME/.rcbackup/$(date +%Y%m%d) $HOME/.rcbackup/latest
  else
   echo "Too much backup files exists, probably something wrong, aborting."
-  kill -9 $$
+  kill -9 $$ > /dev/null 2>&1
  fi
 fi
 
@@ -122,10 +123,10 @@ done
 if [ "$(rpm -qa | grep -q git; echo $?)" -ne "0" ]
 then
 	yum install git vim -y \
-	&& git config --global user.name "NewOne121" \
+	&& git config --global user.name "Filipp Filippov" \
 	&& git config --global user.email "f.filippov7@gmail.com"
 else
-	git config --global user.name "NewOne121"
+	git config --global user.name "Filipp Filippov"
 	git config --global user.email "f.filippov7@gmail.com"
 fi
 #
