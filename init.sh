@@ -123,7 +123,7 @@ do
 done
 
 ###Configure git
-if [ "$(rpm -qa | grep -q git; echo $?)" -ne "0" ]
+if [ "$(rpm -qa | egrep -q 'vim-common'; echo $?)" -ne "0" ]
   then
 	  yum install git vim -y \
 	  && git config --global user.name "Filipp Filippov" \
