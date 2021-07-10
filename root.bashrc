@@ -36,9 +36,9 @@ alias l='ls -CF'
 alias systemctl='systemctl --no-pager'
 
 #Kubectl aliases
-if [ -F '/usr/local/bin/kubectl' ];
+if [ -f '/usr/local/bin/kubectl' ];
 then
-  kubectl completion bash
+  kubectl completion bash > /dev/null
   alias kubestat='systemctl status kube-apiserver kube-controller-manager kubelet kube-proxy etcd'
   alias kubeoff='systemctl stop kube-apiserver kube-controller-manager kubelet kube-proxy etcd'
   alias kubeon='systemctl start kube-apiserver kube-controller-manager kubelet kube-proxy etcd'
